@@ -18,10 +18,10 @@ def health():
 
 @app.post("/generate")
 def generate():
+    print("AI is responding to a request...")
     payload = request.get_json(silent=True) or {}
     message = payload.get("message", "").strip()
     patient = payload.get("patient") or {}
-
     if not message:
         return jsonify({"error": "Message required"}), 400
 
